@@ -1,10 +1,12 @@
 @import "tailwindcss";
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,4 +23,42 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* 移动端优先的媒体查询 */
+@media (min-width: 640px) {
+  body {
+    padding: 2rem;
+    max-width: 800px;
+  }
+}
+
+/* 添加一些基础样式 */
+@layer components {
+  h1 {
+    @apply text-xl sm:text-2xl font-bold mb-4 text-center sm:text-left;
+  }
+
+  button {
+    @apply px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-blue-500 text-white rounded hover:bg-blue-600;
+  }
+
+  input {
+    @apply w-full sm:w-auto px-3 py-1.5 sm:px-4 sm:py-2 border rounded;
+  }
+
+  li {
+    @apply flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 border-b;
+  }
+
+  ul {
+    @apply mt-4 w-full;
+  }
+}
+
+
